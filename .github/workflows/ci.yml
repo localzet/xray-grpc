@@ -1,0 +1,21 @@
+name: Protobuf schema validation
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Install pinned protoc
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 --output "$RUNNER_TEMP/protoc.zip" https://github.com/protocolbuffers/protobuf/releases/download/v25.8/protoc-25.8-linux-x86_64.zip
+          echo "f7873a2b57811575c661faffa847e0e9b1bb06a1aea5021eccb05e8c04b260d5  $RUNNER_TEMP/protoc.zip" | sha256sum --check
+          unzip -q "$RUNNER_TEMP/protoc.zip" -d "$RUNNER_TEMP/protoc"
+          echo "$RUNNER_TEMP/protoc/bin" >> "$GITHUB_PATH"
+      - run: bash compile_proto.sh --check
+      - name: Generate message classes without touching the submodule
+        env:
+          PHP_OUT_DIR: ${{ runner.temp }}/xray-php
+        run: bash compile_proto.sh --php-only
