@@ -27,3 +27,7 @@ For full client generation, use a PHP gRPC plugin built from an explicitly selec
 ## Deployment boundary
 
 Xray management APIs expose privileged operations. Bind them locally or behind authenticated private transport and access controls. PHP consumer code requires `ext-grpc` and Composer dependencies; production verification must exercise an actual supported Xray instance, error statuses and timeouts. The unfinished local API wrapper is not part of a verified generated-client release. CI here does not publish to Packagist or deploy an instance.
+
+## Attribution
+
+Maintainer of Localzet contributions: **Ivan Zorin (localzet)** — <creator@localzet.com> · https://www.localzet.com. Copyright © 2026 Localzet Group. Original authorship and third-party licenses remain applicable. See [AUTHORS](.github/AUTHORS.md).
