@@ -28,6 +28,6 @@ GRPC_PHP_PLUGIN=/absolute/path/to/grpc_php_plugin bash compile_proto.sh
 
 API управления Xray выполняет привилегированные операции. Открывайте его локально либо через аутентифицированный приватный транспорт и правила доступа. Потребителю PHP нужны `ext-grpc` и зависимости Composer; эксплуатационная проверка должна использовать настоящую поддерживаемую версию Xray, ошибочные статусы и тайм-ауты. Незавершённая локальная обёртка API не является проверенным релизом генерируемых клиентов. Этот CI не публикует Packagist и не развёртывает сервер.
 
-## Attribution
+## Авторство
 
-Maintainer of Localzet contributions: **Ivan Zorin (localzet)** — <creator@localzet.com> · https://www.localzet.com. Copyright © 2026 Localzet Group. Original authorship and third-party licenses remain applicable. See [AUTHORS](.github/AUTHORS.md).
+Сопровождающий собственных изменений: **Ivan Zorin (localzet)** — <creator@localzet.com> · https://www.localzet.com. Copyright © 2026 Localzet Group. Исходное авторство и лицензии сторонних компонентов сохраняются. См. [AUTHORS](.github/AUTHORS.md).
